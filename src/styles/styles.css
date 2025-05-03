@@ -1,0 +1,282 @@
+@import url('./variables.css');
+
+html, body {
+  margin-top: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  overflow: hidden !important;
+  background: var(--base-bg-color);
+  height: 100% !important;
+}
+
+.reactVersion{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    right: 20px;
+    font-family: var(--base-font-family);
+    font-size: 10px;
+    pointer-events: none;
+}
+
+/* button press *//* button press *//* button press *//* button press *//* button press *//* button press */
+
+button:active {
+    transform: translateY(2px)
+}
+
+/* design loader *//* design loader *//* design loader *//* design loader *//* design loader *//* design loader */
+
+.loader {
+    width: 65px;
+    aspect-ratio: 1;
+    position: relative;
+}
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50px;
+    box-shadow: 0 0 0 4px inset #eb9321;
+    animation: l4 3s infinite;
+}
+.loader:after {
+    animation-delay: -1.75s;
+}
+@keyframes l4 {
+    0% {
+      inset: 0 35px 35px 0;
+    }
+    12.5% {
+      inset: 0 35px 0 0;
+    }
+    25% {
+      inset: 35px 35px 0 0;
+    }
+    37.5% {
+      inset: 35px 0 0 0;
+    }
+    50% {
+      inset: 35px 0 0 35px;
+    }
+    62.5% {
+      inset: 0 0 0 35px;
+    }
+    75% {
+      inset: 0 0 35px 35px;
+    }
+    87.5% {
+      inset: 0 0 35px 0;
+    }
+    100% {
+      inset: 0 35px 35px 0;
+    }
+}
+
+/* custom fonts *//* custom fonts *//* custom fonts *//* custom fonts *//* custom fonts *//* custom fonts */
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Roman.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeue-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/* theme toggle *//* theme toggle *//* theme toggle *//* theme toggle *//* theme toggle *//* theme toggle */
+
+.theme-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.switch-container {
+  display: flex;
+  position: relative;
+  background: var(--switch-container-color);
+  border-radius: 30px;
+  padding: 5px;
+  justify-content: space-between;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-slider {
+  position: absolute;
+  width: 35px;
+  height: 33px;
+  background: var(--switch-slider-color);
+  border-radius: 30px;
+  transition: left 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-btn {
+  flex: 1;
+  width: 35px;
+  height: 35px;
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+ /* выбранный элемент */
+.switch-btn.active {
+  color: #007bff;
+}
+
+/* other css styles *//* other css styles *//* other css styles *//* other css styles *//* other css styles */
+
+.custom-textfield input {
+    color: var(--base-text-color) !important;
+    font-family: var(--base-font-family) !important;
+}
+
+.custom-textfield .MuiInputLabel-root {
+    color: var(--base-text-color) !important;
+    font-family: var(--base-font-family) !important;
+}
+
+.custom-textfield .MuiOutlinedInput-root fieldset {
+  border-color: var(--secondary) !important;
+}
+
+.custom-textfield .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--secondary) !important;
+}
+
+.custom-textfield .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--primary) !important;
+}
+
+
+.MuiButton-root.MuiButton-outlined {
+  color: var(--base-text-color) !important;
+  font-family: var(--base-font-family) !important;
+  border-color: var(--primary) !important;
+  min-width: 20px !important;
+  padding: 5px 5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiButton-root.MuiButton-outlined:hover {
+  border-color: var(--secondary) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.MuiButton-root.MuiButton-outlined:focus,
+.MuiButton-root.MuiButton-outlined.Mui-focused {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(216, 132, 36, 0.5) !important;
+}
+
+.MuiButton-root.MuiButton-outlined .MuiButton-startIcon {
+  margin: 0 !important;
+}
+
+
+.custom-select .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary) !important;
+}
+
+.custom-select:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--secondary) !important;
+}
+
+.custom-select.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary) !important;
+}
+
+.MuiSelect-root,
+.MuiSelect-select {
+  color: var(--base-text-color) !important;
+  font-family: var(--base-font-family) !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiInputLabel-root {
+  color: var(--base-text-color) !important;
+  font-family: var(--base-font-family) !important;
+}
+
+.MuiSelect-icon {
+  color: var(--base-text-color) !important;
+}
+
+.MuiTypography-h4 {
+  color: var(--base-text-color) !important;
+  font-family: var(--base-font-family) !important;
+}
+
+
+
+.custom-table-container .MuiPaper-root {
+    background-color: var(--base-bg-color) !important;
+    box-shadow: none !important;
+    overflow: hidden;
+}
+
+/* Заголовок таблицы */
+.custom-table-container .MuiTableHead-root .MuiTableCell-root {
+    color: var(--base-text-color) !important;
+    font-family: var(--base-font-family) !important;
+    background-color: var(--base-element-color) !important;
+}
+
+/* Ячейки данных */
+.custom-table-container .MuiTableBody-root .MuiTableCell-root {
+    color: var(--base-text-color) !important;
+    font-family: var(--base-font-family) !important;
+    background-color: var(--base-element-color) !important;
+}
+
+/* Строки таблицы */
+.custom-table-container .MuiTableRow-root:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.custom-table-container .MuiTableRow-root.Mui-selected {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Данные в ячейках */
+.custom-table-container .MuiTableCell-body {
+  color: var(--base-text-color) !important;
+  font-family: var(--base-font-family) !important;
+  font-size: 0.95rem !important;
+}

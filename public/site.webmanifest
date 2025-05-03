@@ -1,0 +1,60 @@
+{
+  "id": "/",
+  "short_name": "Отчет доставок",
+  "name": "Отчет доставок - Управление доставками",
+  "description": "Отчет доставок сформирует для вас самую актуальную информацию.",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "800x1280",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#682727",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "lang": "ru",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "iarc_rating_id": "null",
+  "display_override": [
+    "standalone",
+    "window-controls-overlay",
+    "browser",
+    "fullscreen"
+  ],
+  "categories": [
+    "business",
+    "finance",
+    "government",
+    "navigation",
+    "personalization",
+    "productivity",
+    "security",
+    "social",
+    "utilities"
+  ]
+}

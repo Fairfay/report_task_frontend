@@ -1,0 +1,27 @@
+.report-page{
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+    height: 100dvh;
+    overflow-y: scroll;
+}
+
+.div-calendar{
+    position: absolute;
+    display: flex;
+    min-height: 50px;
+    border-radius: 20px;
+    min-width: 200px;
+    max-width: 250px;
+    box-shadow: none;
+    top: 100px;
+    flex-direction: column;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.custom-table-container{
+    margin-top: 30px;
+}
