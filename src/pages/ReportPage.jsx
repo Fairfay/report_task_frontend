@@ -290,15 +290,21 @@ const ReportPage = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {deliveries.length > 0 && deliveries.map((d) => (
+                        {deliveries.length > 0 ? deliveries.map((d) => (
                             <TableRow key={d.id}>
                                 <TableCell>Доставка {d.id}</TableCell>
                                 <TableCell>{new Date(d.delivery_time).toLocaleString().slice(0, 17)}</TableCell>
-                                <TableCell>{d.transport}</TableCell>
-                                <TableCell>{d.services}</TableCell>
+                                <TableCell>{transport.find(t => t.id === d.transport)?.brand}</TableCell>
+                                <TableCell>{d.services.map(serviceId => services.find(s => s.id === serviceId)?.name || `ID:${serviceId}`).join(', ') || 'Не указано'}</TableCell>
                                 <TableCell>{d.distance}</TableCell>
                             </TableRow>
-                        ))}
+                        )) : <TableRow>
+                            <TableCell colSpan={5} align="center">
+                                <Typography variant="body2" color="red">
+                                    Данные не найдены
+                                </Typography>
+                            </TableCell>
+                        </TableRow>}
                     </TableBody>
                 </Table>
             </TableContainer>

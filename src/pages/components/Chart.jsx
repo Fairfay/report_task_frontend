@@ -144,7 +144,7 @@ const Chart = ({ data }) => {
     }, [data, resolvedTheme]);
 
     if (!chartData || !chartOptions) {
-        return <div>Загрузка данных для графика...</div>;
+        return null;
     }
 
     return <Line data={chartData} options={chartOptions} height={100} />;
