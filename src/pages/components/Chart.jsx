@@ -16,6 +16,7 @@ import { ru } from 'date-fns/locale';
 import { useTheme } from '../../ThemeProvider';
 import { Line } from 'react-chartjs-2';
 
+// Регистрация необходимых модулей Chart.js
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -29,26 +30,25 @@ ChartJS.register(
 );
 
 const Chart = ({ data }) => {
-    const { resolvedTheme } = useTheme();
+    const { resolvedTheme } = useTheme(); // Текущая тема: light/dark
     const [chartData, setChartData] = useState(null);
     const [chartOptions, setChartOptions] = useState(null);
 
     useEffect(() => {
         if (data && data.length > 0) {
-            const currentYear = new Date().getFullYear();
-
+            // Фильтруем данные с count > 0 для корректного отображения
             const validData = data.filter(item => item.count > 0);
-
+            // Преобразуем данные в формат, понятный Chart.js
             const labels = validData.map(item => {
                 const date = new Date(item.year, item.month - 1, item.day);
                 return date.toISOString();
             });
 
             const dataValues = validData.map(item => item.count);
-
+            // Вычисляем максимальное значение по Y для масштабирования
             const maxCount = Math.max(...dataValues);
             const yAxisMax = Math.max(maxCount, 5);
-
+            // Формируем данные графика
             setChartData({
                 labels: labels,
                 datasets: [{
@@ -63,7 +63,7 @@ const Chart = ({ data }) => {
                     pointHoverRadius: 6,
                 }],
             });
-
+            // Настройки графика
             setChartOptions({
                 plugins: {
                     legend: {

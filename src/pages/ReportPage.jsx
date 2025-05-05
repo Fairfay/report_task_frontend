@@ -31,12 +31,13 @@ import { format } from 'date-fns';
 const ReportPage = () => {
     const token = localStorage.getItem('token');
     const apiUrl = process.env.REACT_APP_API_URL;
-
+    // Фильтры отчета
     const [selectedFilters, setSelectedFilters] = useState({
         service: [],
         transport: [],
         dateRange: [],
     });
+    // Ссылка на предыдущие фильтры для сравнения изменений пока не нужна
     const [prevSelectedFiltersRef, setprevSelectedFiltersRef] = useState({
         service: [],
         transport: [],
@@ -50,11 +51,11 @@ const ReportPage = () => {
     const [modalIsOpenCalendar, setIsOpenCalendar] = useState(false);
     const [firstLoading, setFirstLoading] = useState(true);
     const [dateRange, setDateRange] = useState([null, null]);
-
+    // === Загрузка данных при монтировании ===
     useEffect(() => {
         fetchReport();
     },[])
-
+    // === Обработка изменений фильтров ===
     useEffect(() => {
         const hasFiltersChanged = JSON.stringify(selectedFilters) !== JSON.stringify(prevSelectedFiltersRef.current);
 
@@ -64,7 +65,7 @@ const ReportPage = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedFilters, firstLoading]);
-
+    // === Обработчики событий ===
     const handleDateChange = date => {
         if (dateRange[0] && dateRange[1]) {
             setDateRange([date, null]);
@@ -83,7 +84,7 @@ const ReportPage = () => {
             setIsOpenCalendar(false);
         }
     };
-
+    // === Запрос данных по фильтрам ===
     const fetchReport = async () => {
         await api.get(`${apiUrl}api/v1/deliverys/`, {
             params: {
@@ -155,7 +156,7 @@ const ReportPage = () => {
         });
         setFirstLoading(false);
     };
-
+    // === Вспомогательные функции ===
     const formatDateRange = () => {
         if (!selectedFilters.dateRange[0] && !selectedFilters.dateRange[1]) return 'По дате доставки';
         if (selectedFilters.dateRange[0] && !selectedFilters.dateRange[1]) return `С ${selectedFilters.dateRange[0]}`;
@@ -163,6 +164,8 @@ const ReportPage = () => {
             return `${selectedFilters.dateRange[0]} - ${selectedFilters.dateRange[1]}`;
         return 'Выберите период';
     };
+
+    document.title = "Отчет - Отчет доставок";
 
     return (
         firstLoading ?
@@ -175,6 +178,7 @@ const ReportPage = () => {
             <span className="loader"></span>
         </div>:
         <div className="report-page">
+        {/* Заголовок и навигация */}
             <Box display="flex" gap={2} mb={2} alignItems="center">
                 <Typography variant="h4" gutterBottom
                 >
@@ -192,6 +196,7 @@ const ReportPage = () => {
                 >
                 </Button>
             </Box>
+            {/* Фильтры */}
             <Box display="flex" gap={1} mb={3} alignItems="center"
                 sx={{
                     height: '40px',
@@ -262,7 +267,9 @@ const ReportPage = () => {
                     Сбросить
                 </Button>
             </Box>
+            {/* График */}
             {chartData && <ChartComponent data={chartData}/>}
+            {/* Таблица с данными */}
             <TableContainer component={Paper} className="custom-table-container"
                 sx={{
                     minHeight: '150px',

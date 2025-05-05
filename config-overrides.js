@@ -1,6 +1,7 @@
 const CompressionPlugin = require('compression-webpack-plugin');
-
+// Переопределение Webpack-конфигурации
 module.exports = function override(config, env) {
+    // Включаем сжатие только в production-сборке
     if (env === 'production') {
         config.plugins.push(
             new CompressionPlugin({

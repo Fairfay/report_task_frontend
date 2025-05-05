@@ -1,6 +1,9 @@
 import LoginPage from './pages/LoginPage';
 import ReportPage from './pages/ReportPage';
-
+/**
+ * Компонент для отображения страницы 404
+ * Используется как fallback при переходе на несуществующий маршрут
+ */
 function NoMatch() {
     return (
       <div style={{ padding: 200, textAlign: 'center' }}>
@@ -9,11 +12,11 @@ function NoMatch() {
       </div>
     );
 }
-
+// Определение маршрутов приложения
 const routes = [
-  { path: '/', element: <LoginPage /> },
-  { path: '/report', element: <ReportPage /> },
-  { path: '*', element: <NoMatch /> }
+  { path: '/', element: <LoginPage /> }, // Главная страница — форма входа
+  { path: '/report', element: <ReportPage /> }, // Отчет по доставкам (защищенный маршрут)
+  { path: '*', element: <NoMatch /> } // Обработка несуществующих маршрутов
 ];
 
 export default routes;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from "./ThemeProvider";
-
+// Доступные темы
 const themes = [
   { id: "light", icon: "☀️", label: "Светлая" },
   { id: "system", icon: "⚙️", label: "Системная" },
@@ -14,6 +14,7 @@ const ThemeSwitcher = () => {
   return (
     <div className="theme-switcher">
         <div className="switch-container">
+          {/* Слайдер, показывающий активную тему */}
             <div className="switch-slider" style={{left: activeIndex === 0 ? "5px" : activeIndex === 1 ? "40px": "75px"}} />
             {themes.map(({ id, icon, label }) => (
                 <button

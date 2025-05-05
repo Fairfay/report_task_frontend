@@ -4,6 +4,7 @@ Host: https://выавы/
 User-agent: *
 Disallow: /flower/
 Disallow: /health/
+Disallow: /report/
 
 # Разрешаем индексацию всех остальных страниц
 Allow: /

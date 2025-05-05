@@ -17,7 +17,7 @@ const LoginPage = () => {
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     };
-    
+    // Отправка формы и запрос на авторизацию
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post(`${apiUrl}api/identity/auth/jwt/create/`, {

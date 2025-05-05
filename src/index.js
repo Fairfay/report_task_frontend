@@ -5,8 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from 'react-router-dom';
 import { ThemeProvider } from './ThemeProvider';
 import './styles/styles.css';
-
+// Создание корневого элемента для React-приложения
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// Монтирование основного приложения с поддержкой:
+// - Темизация (ThemeProvider)
+// - Роутинг (Router)
 root.render(
   <React.StrictMode>
     <ThemeProvider>
@@ -16,5 +19,5 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
-
+// Отправка метрик производительности (например, LCP, FID)
 reportWebVitals();
