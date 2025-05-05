@@ -24,7 +24,7 @@ docker-compose up --build
 ```
 # Для запуска проекта в прод
 
-Заполнить .env.prod по примеру .env.template
+Заполнить .env по примеру .env.template
 
 Запустить проект
 ```bash
